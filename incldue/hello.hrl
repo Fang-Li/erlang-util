@@ -1,0 +1,1 @@
+-record(state,{a,b,c}).
