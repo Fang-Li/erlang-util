@@ -16,6 +16,7 @@ Key Features
   - Emakefile满足该项目可以一键编译所有src下源代码
   - 打开bat快捷方式自动编译一次
   - reload模块会保证有更新时自动加载
+  - user_default启动前需要单独编译放在主目录
 
 - **启动**
   - 启动时会自动加载所有模块，这样可以关联tab键
