@@ -9,8 +9,8 @@ Key Features
 -------------
 
 - **环境**  
-  适用于windows环境
-  可以自己修改werl.bat以适用*nix环境
+  - 适用于windows环境
+  - 可以自己修改werl.bat以适用*nix环境
   
 - **编译**
   - Emakefile满足该项目可以一键编译所有src下源代码
