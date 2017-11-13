@@ -1,0 +1,124 @@
+{obj,[{"mask","0"},{"offlinelist",[{"msgid","1482128698706923"},{"id","1482128698706923"},{"msgTime","1482128698708"},{"mask","0"},{"userid","15209"},{"username","88882251"},{"userimage","http,//beta.iyueni.com/Uploads/avatar/2/15209_O3j1yO.jpg_200_200_2_80.jpg"},{"usergender",2},{"type",1000,{"content","1"},{"msgsource","约你"},{"usersource","yuejian.net"},{"userfrom","约你"},{"msgtype","0"},{"msgid","1482128700297505"},{"id","1482128700297505"},{"msgTime","1482128700299"},{"mask","0"},{"userid","15209"},{"username","88882251"},{"userimage","http,//beta.iyueni.com/Uploads/avatar/2/15209_O3j1yO.jpg_200_200_2_80.jpg"},{"usergender",2},{"type",1000,{"content","2"},{"msgsource","约你"},{"usersource","yuejian.net"},{"userfrom","约你"},{"msgtype","0"},{"msgid","1482128701884762"},{"id","1482128701884762"},{"msgTime","1482128701887"},{"mask","0"},{"userid","15209"},{"username","88882251"},{"userimage","http,//beta.iyueni.com/Uploads/avatar/2/15209_O3j1yO.jpg_200_200_2_80.jpg"},{"usergender",2},{"type",1000,{"content","3"},{"msgsource","约你"},{"usersource","yuejian.net"},{"userfrom","约你"},{"msgtype","0"},{"msgid","1482128757141686"},{"id","1482128757141686"},{"msgTime","1482128757143"},{"mask","0"},{"userid","15538"},{"username","Jim"},{"userimage","http,//beta.iyueni.com/Uploads/avatar/2/15538_pgL9AK.jpg_200_200_2_80.jpg"},{"usergender",1},{"type",1000,{"content","4"},{"msgsource","约你"},{"usersource","yuejian.net"},{"userfrom","约你"},{"msgtype","0"},{"msgid","1482128758676958"},{"id","1482128758676958"},{"msgTime","1482128758679"},{"mask","0"},{"userid","15538"},{"username","Jim"},{"userimage","http,//beta.iyueni.com/Uploads/avatar/2/15538_pgL9AK.jpg_200_200_2_80.jpg"},{"usergender",1},{"type",1000,{"content","5"},{"msgsource","约你"},{"usersource","yuejian.net"},{"userfrom","约你"},{"msgtype","0"},{"msgid","1482128789349801"},{"id","1482128789349801"},{"msgTime","1482128789351"},{"mask","0"},{"userid","15209"},{"username","88882251"},{"userimage","http,//beta.iyueni.com/Uploads/avatar/2/15209_O3j1yO.jpg_200_200_2_80.jpg"},{"usergender",2},{"type",1000,{"content","6"},{"msgsource","约你"},{"usersource","yuejian.net"},{"userfrom","约你"},{"msgtype","0"}]},{"type","10000"},{"groupimage","http,//beta.iyueni.com/Uploads/group/icon/2/15475_zteE7W.jpg_200_200_2_70.jpg"},{"groupname","群组"},{"groupid","1122601"}]}
+
+
+
+
+
+
+
+
+
+
+
+
+
+rfc4627:encode({obj,[{"mask",<<"0">>},
+      {"offlinelist",
+       [{obj,[{"msgid",<<"1482130263232650">>},
+              {"id",<<"1482130263232650">>},
+              {"msgTime",<<"1482130263234">>},
+              {"mask",<<"0">>},
+              {"userid",<<"15475">>},
+              {"username",<<"leon">>},
+              {"userimage",
+               <<"http://beta.iyueni.com/Uploads/avatar/2/15475_2VN7uq.jpg_200_200_2_80.jpg">>},
+              {"usergender",1},
+              {"type",1000},
+              {"content",<<"1">>},
+              {"msgsource",<<"XX">>},
+              {"usersource",<<"yuejian.net">>},
+              {"userfrom",<<"XX">>},
+              {"msgtype",<<"0">>}]},
+        {obj,[{"msgid",<<"1482130280891971">>},
+              {"id",<<"1482130280891971">>},
+              {"msgTime",<<"1482130280895">>},
+              {"mask",<<"0">>},
+              {"userid",<<"15475">>},
+              {"username",<<"leon">>},
+              {"userimage",
+               <<"http://beta.iyueni.com/Uploads/avatar/2/15475_2VN7uq.jpg_200_200_2_80.jpg">>},
+              {"usergender",1},
+              {"type",1000},
+              {"content",<<"2">>},
+              {"msgsource",<<"XX">>},
+              {"usersource",<<"yuejian.net">>},
+              {"userfrom",<<"XX">>},
+              {"msgtype",<<"0">>}]}]},
+      {"type",<<"10000">>},
+      {"groupimage",
+       <<"http://beta.iyueni.com/Uploads/group/icon/2/15475_zteE7W.jpg_200_200_2_70.jpg">>},
+      {"groupname",<<231,190,164,231,187,132>>},
+      {"groupid",<<"1122601">>}]})
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+
+                         
+14:52:19.664447 <0.6337.23> rfc4627:encode({obj,[{"mask",<<"0">>},
+      {"type",<<"10000">>},
+      {"offlinelist",
+       [{obj,[{"msgid",<<"1482130263232650">>},
+              {"id",<<"1482130263232650">>},
+              {"msgTime",<<"1482130263234">>},
+              {"mask",<<"0">>},
+              {"userid",<<"15475">>},
+              {"username",<<"leon">>},
+              {"userimage",
+               <<"http://beta.iyueni.com/Uploads/avatar/2/15475_2VN7uq.jpg_200_200_2_80.jpg">>},
+              {"usergender",1},
+              {"type",1000},
+              {"content",<<"1">>},
+              {"msgsource",<<"çº¦ä½ ">>},
+              {"usersource",<<"yuejian.net">>},
+              {"userfrom",<<"çº¦ä½ ">>},
+              {"msgtype",<<"0">>}]}]},
+      {"groupimage",
+       <<"http://beta.iyueni.com/Uploads/group/icon/2/15475_zteE7W.jpg_200_200_2_70.jpg">>},
+      {"groupname",<<231,190,164,231,187,132>>},
+      {"groupid",<<"1122601">>}]})
+                         
+14:52:19.665587 <0.6337.23> rfc4627:encode({obj,[{"mask",<<"0">>},
+      {"offlinelist",
+       [{obj,[{"msgid",<<"1482130263232650">>},
+              {"id",<<"1482130263232650">>},
+              {"msgTime",<<"1482130263234">>},
+              {"mask",<<"0">>},
+              {"userid",<<"15475">>},
+              {"username",<<"leon">>},
+              {"userimage",
+               <<"http://beta.iyueni.com/Uploads/avatar/2/15475_2VN7uq.jpg_200_200_2_80.jpg">>},
+              {"usergender",1},
+              {"type",1000},
+              {"content",<<"1">>},
+              {"msgsource",<<"çº¦ä½ ">>},
+              {"usersource",<<"yuejian.net">>},
+              {"userfrom",<<"çº¦ä½ ">>},
+              {"msgtype",<<"0">>}]},
+        {obj,[{"msgid",<<"1482130280891971">>},
+              {"id",<<"1482130280891971">>},
+              {"msgTime",<<"1482130280895">>},
+              {"mask",<<"0">>},
+              {"userid",<<"15475">>},
+              {"username",<<"leon">>},
+              {"userimage",
+               <<"http://beta.iyueni.com/Uploads/avatar/2/15475_2VN7uq.jpg_200_200_2_80.jpg">>},
+              {"usergender",1},
+              {"type",1000},
+              {"content",<<"2">>},
+              {"msgsource",<<"çº¦ä½ ">>},
+              {"usersource",<<"yuejian.net">>},
+              {"userfrom",<<"çº¦ä½ ">>},
+              {"msgtype",<<"0">>}]}]},
+      {"type",<<"10000">>},
+      {"groupimage",
+       <<"http://beta.iyueni.com/Uploads/group/icon/2/15475_zteE7W.jpg_200_200_2_70.jpg">>},
+      {"groupname",<<231,190,164,231,187,132>>},
+      {"groupid",<<"1122601">>}]})
+(ejabberd@localhost)306> recon_trace:clear().

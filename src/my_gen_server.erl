@@ -11,12 +11,16 @@ handle_call(_,_,_) ->
   A = "call",
   io:format("A .. ~p~n",[A]),
   {reply, hello, []}.
-handle_cast(_,_) ->
-  A = "cast",
-  io:format("A .. ~p~n",[A]),
+handle_cast(bb,_State) ->
+    %%A = "cast",
+    io:format("A .. ~p~n",[bb]),
+    {reply,[aa],[]};
+handle_cast(Data,_State) ->
+  %%A = "cast",
+  io:format("A .. ~p~n",[Data]),
   {noreply,[]}.
-handle_info(_,_) ->
-  A = "info",
+handle_info(A,_) ->
+  %A = "info",
   io:format("A .. ~p~n",[A]),
   {noreply,[]}.
 terminate(_,_) ->

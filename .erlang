@@ -17,3 +17,4 @@ io:format("aa~n").
 
 
 application_controller:set_env(_App=stdlib,_Name=shell_catch_exception,true).
+reloader:start().

@@ -2,7 +2,12 @@
 -compile(export_all).
 
 -spec combine(tuple()) -> list().
-combine(A) ->
+
+combine(A) when is_tuple(A) ->
+  List = tuple_to_list(A),
+  combine(List);
+  
+combine(A) when is_list(A) ->
   case A of
     [] -> 
       [];
@@ -14,7 +19,8 @@ combine(odd, A, Acc) ->
   [Key|Tail] =  A,
   case Tail of
     [] ->
-      [{Key,error}|Acc];
+      L = [{Key,error}|Acc],
+      lists:reverse(L);
     _ ->
       combine(even, Key, Tail, Acc)
   end.
@@ -23,7 +29,8 @@ combine(even, Key, A, Acc) ->
   [Value|Tail] = A,
   case Tail of 
     [] ->
-      [{Key,Value} | Acc];
+      L = [{Key,Value} | Acc],
+      lists:reverse(L);
     _ ->
       combine(odd, Tail, [{Key,Value} | Acc])
   end.

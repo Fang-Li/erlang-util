@@ -1,0 +1,11 @@
+                         
+12:19:25.595793 <0.14854.28> aa_hookhandler:user_send_packet_handler({jid,"0","yiyuread.com",[],"0","yiyuread.com",[]}, {jid,"15174","yiyuread.com",[],"15174","yiyuread.com",[]}, {xmlelement,"message",
+            [{"type","normal"},
+             {"msgtype","system"},
+             {"id","193925858b141878cb1_29886446"},
+             {"msgTime","1482207553000"},
+             {"from","0@yiyuread.com"},
+             {"to","15174@yiyuread.com"}],
+            [{xmlelement,"body",[],
+                         [{xmlcdata,<<"{\"userid\":\"15174\",\"username\":\"\\u9ed1\\u767d\\u4e3a\\u79d8\\u4e0a\\u738b\\u8005\",\"userimage\":\"http:\\/\\/beta.yiyuread.com\\/Uploads\\/avatar\\/2\\/15174_5M0VqT.jpg_200_200_2_80.jpg\",\"type\":\"124\",\"live_level\":\"2\"}">>}]}]})
+                         
