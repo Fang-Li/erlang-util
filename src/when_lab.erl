@@ -56,3 +56,12 @@ record(A=#a{a=1})->
   A;
 record(A=#b{})->
     A.
+
+
+get_level() ->
+  1.
+
+%guard() ->
+%  if get_level() > 1 -> a;
+%     true -> b 
+%  end.

@@ -3,6 +3,7 @@
 
 remote(OtherNode)->
 % get the PID of the user server on OtherNode
+% OtherNode = 'bb@10.104.101.246'.
 RemoteUser = rpc:call(OtherNode, erlang,whereis,[user]), 
 
 true = is_pid(RemoteUser),
@@ -18,4 +19,6 @@ io:format(RemoteUser, "Hello from ~p~n", [node()]).
 % Summary:
 % Standard I/O server.
 % Description:
-% user is a server that responds to all messages defined in the I/O interface. The code in user.erl can be used as a model for building % alternative I/O servers.
+% user is a server that responds to all messages 
+% defined in the I/O interface. The code in user.erl 
+% can be used as a model for building % alternative I/O servers.
