@@ -4,6 +4,12 @@ deps
 *.plt
 erl_crash.dump
 ebin/*.beam
+!ebin/recon.beam
+!ebin/recon_lib.beam
+!ebin/recon_alloc.beam
+!ebin/recon_trace.beam
+!ebin/reloader.beam
+!ebin/parse_trans.beam
 rel/example_project
 .concrete/DEV_MODE
 .rebar
