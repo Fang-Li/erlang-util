@@ -10,3 +10,12 @@ get(A) ->
 		#{num := b} -> b;
 		_ -> c
 	end. 
+
+%% ====测试 fun 函数用普通函数代替
+
+%% fun_test(_Key,Value,Acc) ->
+%% 	[Value|Acc].
+%%  
+%% map_test() ->
+%% 	Fun = fun fun_test/3,
+%% 	maps:fold(Fun(Key,Value,Acc) ,[],#{1=>1,2=>2}).
