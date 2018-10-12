@@ -4,6 +4,7 @@ deps
 *.plt
 erl_crash.dump
 ebin/*.beam
+user_default.beam
 !ebin/recon.beam
 !ebin/recon_lib.beam
 !ebin/recon_alloc.beam
