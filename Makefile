@@ -1,4 +1,4 @@
-all: parse_trans
+all: parse_trans user_default
 	@erl -pa ebin -pa ebin/recon  -s make all -s init stop
 parse_trans:
 	@erlc -o ebin src/parse_trans.erl
