@@ -2,6 +2,8 @@ all: parse_trans
 	@erl -pa ebin -pa ebin/recon  -s make all -s init stop
 parse_trans:
 	@erlc -o ebin src/parse_trans.erl
+user_default:
+	@erlc  user_default.erl
 live:
 	@erl -pa ebin -eval "{ok,FileLists} = file:list_dir(ebin), \
 	try \
