@@ -19,3 +19,12 @@ get(A) ->
 %% map_test() ->
 %% 	Fun = fun fun_test/3,
 %% 	maps:fold(Fun(Key,Value,Acc) ,[],#{1=>1,2=>2}).
+
+match() ->
+	do_match(#{a=>a,b=>b}).
+%do_match(#{a:=Key=a}) ->
+%	Key;
+do_match(#{a:=a=Key}) ->
+	Key;
+do_match(#{}) ->
+    else.

@@ -9,7 +9,7 @@ user_default.beam
 !ebin/recon_lib.beam
 !ebin/recon_alloc.beam
 !ebin/recon_trace.beam
-!ebin/reloader.beam
+ebin/reloader.beam
 rel/example_project
 .concrete/DEV_MODE
 .rebar
