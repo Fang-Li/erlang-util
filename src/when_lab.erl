@@ -65,3 +65,17 @@ get_level() ->
 %  if get_level() > 1 -> a;
 %     true -> b 
 %  end.
+
+
+
+
+-record(cross_pos, {
+  pao = 0 %% 点炮的那位勇士
+}).
+
+rd_lab(Pos) ->
+	do_rd(Pos,#cross_pos{pao = 1}).
+do_rd(Pos,#cross_pos{pao=Pos}) ->
+ equal;
+do_rd(Pos,_) ->
+ no_equal.
