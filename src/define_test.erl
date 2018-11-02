@@ -16,3 +16,8 @@ ting2() ->
 %		true -> no
 %	end.
 	no.
+
+-define(IF(Cond, E1, E2), (case (Cond) of true -> (E1); false -> (E2) end)). %% 三目运算,三元运算
+
+def_lab() ->
+	?IF(true,ting(),666).
