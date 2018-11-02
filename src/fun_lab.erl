@@ -6,3 +6,8 @@ fun_lab(Num) ->
           (_Num) -> b 
           end,
 	Fun(Num).
+
+lab(A,[A]) ->
+  A;
+lab(A,B) ->
+  bbb.
