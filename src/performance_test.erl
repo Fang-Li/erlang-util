@@ -60,5 +60,7 @@ collect(MainId, N_Pro, N_Finished, TotalSuc, TotalFail) ->
 simple_test(ProNO, TotalTimes, LoopTimes) ->
     List = [1,2,3,4,5,6,7,8,9,0],
     main(ProNO, TotalTimes, fun length/1, List, LoopTimes).
-    
 
+%% n个Fun运行total次,循环Loop次    
+main({ProcessNum,TotalTimes,LoopTimes},{Fun,Args}) ->
+	main(ProcessNum,TotalTimes,Fun,Args,LoopTimes).

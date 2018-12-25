@@ -4,6 +4,8 @@
 
 test() ->
   ets:new(msg,[named_table,set,public]),
+  ets:new(msg_bag,[named_table,bag,public]),
+  ets:new(msg_duplicate_bag,[named_table,duplicate_bag,public]),
   ets:insert(msg,{u1,[{1 ,x1 ,y1},{3 ,x3 ,y3},{5 ,x5 ,y5}, {7 ,x7 ,y7 },  {9 ,x9 ,y9 }]}),
   ets:insert(msg,{u2,[{ 2,x2 ,y2},{4 ,x4 ,y4},{6 ,x6 ,y6},{8 ,x8 ,y8 },{10 ,x10 ,y10 }]}),
   ok.
