@@ -95,4 +95,25 @@ test8() ->
         [{type, "soft"},
             {produced, "2013-02-21T12:57:00"}],
         []},
-        {comment,[ {aa,<<"hhhh">>} ],[]}]).
+        {comment, [{aa, <<"hhhh">>}], []}]).
+
+%% formatter xml
+%% TODO
+test9() ->
+    Data =
+        {bike,
+            [{year, "2003"}, {color, "black"}, {condition, "new"}],
+            [{name,
+                [{manufacturer, ["Harley Davidsson"]},
+                    {brandName, ["XL1200C"]},
+                    {additionalName, ["Sportster"]}]},
+                {engine,
+                    ["V-engine, 2-cylinders, 1200 cc"]},
+                {kind, ["custom"]},
+                {drive, ["belt"]}]},
+    {RootEl,Misc}=xmerl_scan:file('motorcycles.xml'),
+    #xmlElement{content=Content} = RootEl,
+    NewContent=Content++lists:flatten([Data]),
+    NewRootEl=RootEl#xmlElement{content=NewContent}.
+
+%% http://erlang.org/doc/apps/xmerl/xmerl_ug.html
