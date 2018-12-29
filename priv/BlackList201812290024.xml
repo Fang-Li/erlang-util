@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<OperationControl>
+    <version version="1"/>
+    <CommonParam EmergencyModeExtendTime="2" BreakdownModeExtendTime="3" CheckFreeModeExtendTime="4" ResidenceTime="5" OpenTime="6" CloseTime="7">
+        <TradeType Coding="3" Content="4"/>
+        <TradeType Coding="2" Content="3"/>
+        <TradeType Coding="1" Content="2"/>
+        <CardStatus Coding="eeeeee" Content="4"/>
+        <CardStatus Coding="eeee" Content="3"/>
+        <CardStatus Coding="eee" Content="2"/>
+    </CommonParam>
+    <AGMParam WaitForPass="8" CardTypeForAGM="9"/>
+    <TVMParam MaxDisplayNum="10" MaxCoinGiveChange="1" CustomerOperationTime="2" CardTypeForTVM="3"/>
+    <BOMParam MaxUpdateTimes="4" CardTypeForBOM="5" GroupTickePriceOffValue="6"/>
+    <PoundageParam Drawback="7" ProlongTime="8" OrderErrorUpdate="9" OverTimeUpdate="10" BlackListUnlock="1" PoundageforTheLoss="2" PoundageforTheFind="3" TicketForOut="4" DepreciationCost="5" DrawbackAfterLoss="6"/>
+    <Signature SignatureType="7" SignatureData="8"/>
+</OperationControl>
