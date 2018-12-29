@@ -100,20 +100,73 @@ test8() ->
 %% formatter xml
 %% TODO
 test9() ->
-    Data =
-        {bike,
-            [{year, "2003"}, {color, "black"}, {condition, "new"}],
-            [{name,
-                [{manufacturer, ["Harley Davidsson"]},
+    Data = data(1),
+    {RootEl, Misc} = xmerl_scan:file('priv/motorcycles.xml'),
+    #xmlElement{content = Content} = RootEl,
+    %console(content,Content),
+    NewContent = Content ++ lists:flatten([Data]),
+    NewRootEl = RootEl#xmlElement{content = NewContent},
+    {ok, IOF} = file:open('priv/new_motorcycles.xml', [write]),
+    Export = xmerl:export_simple([NewRootEl], xmerl_xml),
+    io:format(IOF, "~s~n", [lists:flatten(Export)]).
+
+data(1) ->
+    {bike,
+        [{year, "2003"}, {color, "black"}, {condition, "new"}],
+        [{name,
+            [{manufacturer, ["Harley Davidsson"]},
+                {brandName, ["XL1200C"]},
+                {additionalName, ["Sportster"]}]},
+            {engine,
+                ["V-engine, 2-cylinders, 1200 cc"]},
+            {kind, ["custom"]},
+            {drive, ["belt"]}]};
+
+data(2) ->
+    [#xmlText{value = "  "},
+        {bike, [{year, "2003"}, {color, "black"}, {condition, "new"}],
+            [#xmlText{value = "\
+    "},
+                {name, [#xmlText{value = "\
+      "},
+                    {manufacturer, ["Harley Davidsson"]},
+                    #xmlText{value = "\
+      "},
                     {brandName, ["XL1200C"]},
-                    {additionalName, ["Sportster"]}]},
-                {engine,
-                    ["V-engine, 2-cylinders, 1200 cc"]},
+                    #xmlText{value = "\
+      "},
+                    {additionalName, ["Sportster"]},
+                    #xmlText{value = "\
+    "}]},
+                {engine, ["V-engine, 2-cylinders, 1200 cc"]},
+                #xmlText{value = "\
+    "},
                 {kind, ["custom"]},
-                {drive, ["belt"]}]},
-    {RootEl,Misc}=xmerl_scan:file('motorcycles.xml'),
-    #xmlElement{content=Content} = RootEl,
-    NewContent=Content++lists:flatten([Data]),
-    NewRootEl=RootEl#xmlElement{content=NewContent}.
+                #xmlText{value = "\
+    "},
+                {drive, ["belt"]},
+                #xmlText{value = "\
+  "}]},
+        #xmlText{value = "\
+"}].
+
 
 %% http://erlang.org/doc/apps/xmerl/xmerl_ug.html
+
+
+scan_file() ->
+    xmerl_scan:file('priv/motorcycles.xml', [{validation, true}]).
+
+console(_, _) ->
+    ok.
+console(_, _, _) ->
+    ok.
+recon() ->
+    recon([{?MODULE, [console]}]).
+recon(Mods) ->
+    Pattern = [{'_', [], [{return_trace}]}],
+    F = [{M, Func, Pattern} || {M, Funcs} <- Mods, Func <- Funcs],
+    recon_trace:calls(F, 2000, [{scope, local}]).
+
+%% dbg:tpl( mnesia_meter, dbg:fun2ms(fun(_) -> return_trace() end)).
+%% dbg:fun2ms(fun(_) -> return_trace() end)
