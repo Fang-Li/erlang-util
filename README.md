@@ -26,3 +26,11 @@ Key Features
   - user_default模块中会加载一些常用shell命令
 
 
+How to use
+-------------
+
+```
+git clone git@github.com:Fang-Li/erlang-util.git
+cd erlang_util
+make clean && make && make live
+```
