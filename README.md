@@ -34,3 +34,26 @@ git clone git@github.com:Fang-Li/erlang-util.git
 cd erlang_util
 make clean && make && make live
 ```
+
+要给项目取个名字了
+-------------
+
+拟取名为工具集或者工具库`kit` `lib`等  
+感觉过于庸俗了  
+一个小而全的日常使用工具库  
+想到了瑞士军刀`Swiss Army Knife`  
+过长  
+取名为`army`得了,不够贴切,`knife`太具象的不知所措了  
+其实一个名称的用途无外乎一下几种用途
+* 命名空间冲突
+* 搜索空间冲突
+* 域名是否可用
+
+也没想过注册一个域名啥的,完全是自用  
+取一些同样功能的,或者常见功能的模块名的时候,防止名称冲突,节省更多的脑力而已  
+搜索的时候,不至于搜索出一大批无关紧要的东西来  
+总不能大家都叫做`gen_server` `time_util`这些  
+又为了区分不同的语言  
+所以最终定位`eknife` : `erlang army knife` `erlang knife`  `一刀`
+唉!  
+爱怎么叫怎么叫吧
