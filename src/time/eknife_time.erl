@@ -18,7 +18,9 @@
     dateToSec/1,%%时间转成时间戳
     dayToSec/1, %%日期转化为时间戳
     time_diff/2, %% 计算时间差
-    time_diff_tomorrow/0, %% 距离明天凌晨的时间差
+    second_diff_tomorrow/0, %% 距离明天凌晨的时间差
+    second_diff_datetime/1,
+    second_diff_datetime/2,
     monotonic_time/1,
     system_time/0,
     system_time/1,
@@ -42,16 +44,24 @@ getTimestamp() ->
 time_diff(DateTime1, DateTime2) ->
     calendar:time_difference(DateTime1, DateTime2).
 
+%% 指定日期的下一天的凌晨1秒的时候
+tomorrow(Date) ->
+    {eknife_date:shift(Date, 1, days), {0, 0, 1}}.
 %% 距离明天早晨的时间差
-time_diff_tomorrow() ->
+second_diff_tomorrow() ->
     Date = date(),
-    %% 今天的当下
     Now = {Date, time()},
-    %% 明天的凌晨
-    Tomorrow = {edate:shift(Date, 1, days), {0, 0, 1}},
+    Tomorrow = tomorrow(Date),
+    second_diff_datetime(Now, Tomorrow).
+
+%% 计算datetime之间相差的秒数
+second_diff_datetime(DateTime) ->
+    second_diff_datetime({date(), time()}, DateTime).
+second_diff_datetime(DateTime1, DateTime2) ->
     %% 时间差
-    {_, {H, M, S}} = time_diff(Now, Tomorrow),
-    H * 60 * 60 + M * 60 + S * 60.
+    {Day, {H, M, S}} = eknife_time:time_diff(DateTime1, DateTime2),
+    Day * 24 * 60 * 60 + calendar:time_to_seconds({H, M, S}).
+
 
 %%获取当前日期的年月日
 get_local_time() ->

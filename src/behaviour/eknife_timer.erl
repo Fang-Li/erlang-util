@@ -34,7 +34,7 @@
 
 %% 每日的定时任务
 crontab() ->
-    io:format("~p",[eknife_time:get_local_time()]).
+    io:format("~p~n", [time()]).
 
 %%--------------------------------------------------------------------
 %% @doc
@@ -49,7 +49,7 @@ start_link() ->
 
 %% 以监督树的方式启动
 sup_monitor() ->
-    supervisor:start_child(mahjong_sup, ?CHILDWORK(mahjong_statistics_retention)).
+    supervisor:start_child(eknife_sup, ?CHILDWORK(?MODULE)).
 %%%===================================================================
 %%% gen_server callbacks
 %%%===================================================================
@@ -69,9 +69,7 @@ sup_monitor() ->
     {ok, State :: #state{}} | {ok, State :: #state{}, timeout() | hibernate} |
     {stop, Reason :: term()} | ignore).
 init([]) ->
-    crontab(),
-    SecondsDiff = eknife_time:time_diff_tomorrow(),
-    {ok, #state{}, timer:seconds(SecondsDiff)}.
+    {ok, #state{}, 0}.
 
 %%--------------------------------------------------------------------
 %% @private
@@ -122,8 +120,11 @@ handle_cast(_Request, State) ->
     {stop, Reason :: term(), NewState :: #state{}}).
 
 handle_info(timeout, State) ->
-    SecondsDiff = eknife_time:time_diff_tomorrow(),
     crontab(),
+    {H,_M,_S} = time(),
+    DateTime = {date(),{H+1,0,1}},
+    SecondsDiff = eknife_time:second_diff_datetime(DateTime),
+    io:format("diff.. ~p ~p ~p~n", [DateTime,time(),SecondsDiff]),
     {noreply, State, timer:seconds(SecondsDiff)};
 
 handle_info(_Info, State) ->
