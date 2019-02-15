@@ -69,7 +69,8 @@ sup_monitor() ->
     {ok, State :: #state{}} | {ok, State :: #state{}, timeout() | hibernate} |
     {stop, Reason :: term()} | ignore).
 init([]) ->
-    {ok, #state{}, 0}.
+    erlang:send_after(timer:seconds(10), self(), timeout),
+    {ok, #state{}}.
 
 %%--------------------------------------------------------------------
 %% @private
@@ -119,13 +120,15 @@ handle_cast(_Request, State) ->
     {noreply, NewState :: #state{}, timeout() | hibernate} |
     {stop, Reason :: term(), NewState :: #state{}}).
 
+%% 这种方式实现的定时任务,当收到其他消息的时候,会把定时任务消掉
 handle_info(timeout, State) ->
     crontab(),
-    {H,_M,_S} = time(),
-    DateTime = {date(),{H+1,0,1}},
-    SecondsDiff = eknife_time:second_diff_datetime(DateTime),
-    io:format("diff.. ~p ~p ~p~n", [DateTime,time(),SecondsDiff]),
-    {noreply, State, timer:seconds(SecondsDiff)};
+    %{H,_M,_S} = time(),
+    %DateTime = {date(),{H+1,0,1}},
+    %SecondsDiff = eknife_time:second_diff_datetime(DateTime),
+    %io:format("diff.. ~p ~p ~p~n", [DateTime,time(),SecondsDiff]),
+    erlang:send_after(timer:seconds(5), self(), timeout),
+    {noreply, State};
 
 handle_info(_Info, State) ->
     {noreply, State}.

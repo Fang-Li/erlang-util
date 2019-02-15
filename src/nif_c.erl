@@ -1,7 +1,7 @@
 -module(nif_c).
 -export([init/0, getloadavg_ex/0, b/1,c/0]).
 -compile(export_all).
--on_load(init/0).
+%-on_load(init/0).
 
 init() ->
    erlang:load_nif("./a", 0).
