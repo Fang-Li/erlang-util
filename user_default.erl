@@ -8,3 +8,5 @@ get_meta() ->
 get_timestamp() ->
   {M, S, _} = erlang:timestamp(), 
   M * 1000000 + S.
+get()->
+  a.

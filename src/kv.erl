@@ -16,7 +16,8 @@ handle_call({putval, Key, Val}, _From, Dict) ->
   {reply, ok, dict:store(Key, Val, Dict)};
 handle_call({getval, Key}, _From, Dict) ->
   {reply, dict:find(Key, Dict), Dict}.
-
+ 
+%
 
 
 dict(Key, Value) ->
