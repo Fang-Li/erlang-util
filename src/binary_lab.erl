@@ -16,12 +16,12 @@
 %% 把手机号或UID中间位替换为****
 
 replace(Binary) when is_binary(Binary) ->
-  replace(binary_to_list(Binary)).
+    replace(binary_to_list(Binary));
 
 replace(List) when length(List) > 3 ->
-  ok;
+    ok;
 
 replace(<<"">>) ->
-  <<"">>.
+    <<"">>.
 
 
