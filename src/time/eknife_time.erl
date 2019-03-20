@@ -17,6 +17,7 @@
     msToDateFull/1,%%时间戳转成年月日时分秒
     dateToSec/1,%%时间转成时间戳
     dayToSec/1, %%日期转化为时间戳
+    time_format/1, %% 时间格式化
     time_diff/2, %% 计算时间差
     second_diff_tomorrow/0, %% 距离明天凌晨的时间差
     second_diff_datetime/1,
@@ -43,6 +44,10 @@ getTimestamp() ->
 
 time_diff(DateTime1, DateTime2) ->
     calendar:time_difference(DateTime1, DateTime2).
+
+time_format({H, M, S}) ->
+    TimeString = lists:flatten(io_lib:format("~2..0B~2..0B~2..0B", [H, M, S])),
+    erlang:list_to_binary(TimeString).
 
 %% 指定日期的下一天的凌晨1秒的时候
 tomorrow(Date) ->
