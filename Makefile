@@ -5,7 +5,7 @@ parse_trans:
 user_default:
 	@erlc -W0  user_default.erl
 live: all
-	@erl -pa ebin -pa ebin/* -eval "{ok,FileLists} = file:list_dir(ebin), \
+	@erl -name c@127.0.0.1 -pa ebin -pa ebin/* -eval "{ok,FileLists} = file:list_dir(ebin), \
 	try \
 	[ begin \
 		[File|Suffix] = string:tokens(FileName,\".\") , \
