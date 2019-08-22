@@ -1,6 +1,27 @@
 -module(fun_lab).
 -compile(export_all).
 
+%% 正确示范
+callback() ->
+    CallBack = fun() -> io:format("~p~n", [a]) end,
+    io:format("start~n", []),
+    CallBack(),
+    io:format("end~n", []).
+
+%% 错误的示范
+callback2() ->
+    CallBack = fun io:format/2("~p~n", [a]),
+    io:format("start~n", []),
+    CallBack(),
+    io:format("end~n", []).
+
+%% 冗余示范
+callback3() ->
+    CallBack = fun() -> fun io:format/2("~p~n", [a]) end,
+    io:format("start~n", []),
+    CallBack(),
+    io:format("end~n", []).
+
 fun_lab(Num) ->
     Fun = fun(0) -> a;
         (_Num) -> b
