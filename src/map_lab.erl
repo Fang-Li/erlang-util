@@ -28,3 +28,15 @@ do_match(#{a:=a = Key}) ->
     Key;
 do_match(#{}) ->
     else.
+
+%% Pos属于局部变量, 不会影响到子函数
+%% 或者子函数没有做模式匹配
+pattern() ->
+    lists:map(
+        fun(Pos) ->
+            lists:map(
+                fun(Pos) ->
+                    io:format("~p,", [Pos])
+                end, lists:seq(2, 4)),
+            io:format("~n", [])
+        end, lists:seq(1, 2)).
