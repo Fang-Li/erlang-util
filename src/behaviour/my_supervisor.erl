@@ -5,7 +5,7 @@
 start() ->
   supervisor:start_link(my_supervisor,[]),
   supervisor:start_link(my_supervisor,[]).
-  
+
 init(_) ->
   {ok,{{one_for_one,1,1},
       [{tick,{my_supervisor,restart,[]},permanent,brutal_kill,worker,[]}]}}.

@@ -1,7 +1,16 @@
 -module(define_test).
 -compile(export_all).
 -define(Jid(User, Resource), {jid, User, Resource, User, Resource}).
+
+-define(JA(Atom), list_to_atom("ja_" ++ atom_to_list(Atom))).
+-define(JB(Bin), begin binary_to_atom(<<"jb_", Bin/binary>>, latin1) end).
+-define(JC(Atom), begin
+                      Bin = atom_to_binary(a, latin1),
+                      binary_to_atom(<<"jc_", Bin/binary>>, latin1)
+                  end).
+
 -define(TingFlag, lists:member(a, interrupt())).
+
 test() ->
     io:format("~p~n", [?Jid(lifang, xxx)]).
 
@@ -77,3 +86,18 @@ ifdef() ->
 
 time_lab() ->
     ?Backup(<<"xian">>, <<"uid">>). %% 不好使
+
+atom(A) ->
+    ?JA(A).
+
+bin(B) ->
+    ?JB(B).
+b(C) ->
+    ?JC(C).
+
+perfa() ->
+    performance_test:main(fun atom/1, a).
+perfb() ->
+    performance_test:main(fun bin/1, <<"a">>).
+perfc() ->
+    performance_test:main(fun b/1, a).
