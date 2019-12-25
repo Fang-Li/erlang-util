@@ -133,7 +133,7 @@ test_lb(_) ->
     wrr().
 
 test() ->
-    performance_test:main(100, 100000, fun test_lb/1, [], 3).
+    performance_test:main(100, 1000000, fun test_lb/1, [], 3).
 
 %% 调用次数统计
 incr(Node) ->
