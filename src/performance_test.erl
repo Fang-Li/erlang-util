@@ -39,7 +39,7 @@ do_job(Collector, 0, _WorkFun, _Arg, Suc, Fail) ->
     %    io:format("in job worker ~p done, suc num : ~p , fail num :~p ~n",[self(), Suc, Fail]),
     Collector ! {done, self(), Suc, Fail};
 do_job(Collector, Times, WorkFun, Arg, Suc, Fail) ->
-    _Res = WorkFun(Arg),
+    _Res = apply(WorkFun, Arg),
 %%     error_logger:format("the res : ~p~n", [_Res]),
     do_job(Collector, Times - 1, WorkFun, Arg, Suc + 1, Fail).
 
