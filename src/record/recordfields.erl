@@ -35,3 +35,17 @@ getfields() ->
     ?RecordFields(jid).
 
 %% thrift使用的是导出到文件里面来做的 ServiceName:function_info(FuncName, params_type)
+
+%% 使用erlang未公开的io_lib_pretty模块好好显示record
+%%pretty_print(Val) ->
+%%    io_lib_pretty:print(Val, fun rec_def_fun/2).
+%%
+%%rec_def_fun(Tag, N) ->
+%%    Ret = recordfields(Tag),
+%%    case Ret =/= [] andalso length(Ret) =:= N of
+%%        true -> Ret;
+%%        false -> no
+%%    end.
+%%
+%%recordfields(_) ->
+%%    record_info(fields, recordname1).
