@@ -82,7 +82,7 @@ ifdef() ->
     ?LOG2(bb).
 
 
--define(Backup(Channel, UnionID), begin Time = ekife_time:time_format(time()), <<"backup#", Time/binary>> end).
+-define(Backup(Channel, UnionID), begin Time = eknife_time:time_format(time()), <<"backup#", Time/binary>> end).
 
 time_lab() ->
     ?Backup(<<"xian">>, <<"uid">>). %% 不好使
@@ -101,3 +101,4 @@ perfb() ->
     performance_test:main(fun bin/1, <<"a">>).
 perfc() ->
     performance_test:main(fun b/1, a).
+
