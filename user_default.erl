@@ -1,7 +1,7 @@
 -module(user_default).
 -compile(export_all).
 -record(foo,{id,name,bar}).
--include("include/ejabberd.hrl").
+-include("ejabberd.hrl").
 
 get_meta() -> 
   user_default:module_info().

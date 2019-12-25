@@ -1,6 +1,6 @@
 -module(include).
 -compile(export_all).
--include("include/hello.hrl").
+-include("hello.hrl").
 
 -record(state2,{
   a,

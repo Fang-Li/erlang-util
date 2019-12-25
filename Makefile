@@ -3,7 +3,7 @@ all: parse_trans user_default
 parse_trans:
 	@erlc -o ebin src/parse_trans.erl
 user_default:
-	@erlc -W0  user_default.erl
+	@erlc -I include -W0  user_default.erl
 live: all
 	@erl -name c@127.0.0.1 -pa ebin -pa ebin/* -eval "{ok,FileLists} = file:list_dir(ebin), \
 	try \

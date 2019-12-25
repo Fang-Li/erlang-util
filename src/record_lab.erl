@@ -24,4 +24,12 @@ lab() ->
     #state{}.
 
 
+pretty_print(Val) ->
+    io_lib_pretty:print(Val, fun rec_def_fun/2).
 
+rec_def_fun(Tag, N) ->
+    Ret = recordfields:get(Tag),
+    case Ret =/= [] andalso length(Ret) =:= N of
+        true -> Ret;
+        false -> no
+    end.
