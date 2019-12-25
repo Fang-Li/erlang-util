@@ -7,7 +7,7 @@
 -module(eknife_queue).
 
 -compile(export_all).
--include("include/function.hrl").
+-include("function.hrl").
 -compile(export_all).
 -record(ets, {max_size, size, push_index, pull_index, ets}).
 
