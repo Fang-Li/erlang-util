@@ -1,19 +1,17 @@
 %% erlang
 {
   [
-    'src/parse_trans.erl',
-    'user_default.erl',
+    'src/parse_transform/parse_trans.erl',
+    'src/user_default.erl',
     'src/*',
     'src/deps/*',
     'src/*/src/*',
-    'src/*/*',
-    '../../repository/recon.git/src/*'
+    'src/*/*'
   ],
   [
      nowarn_export_all,
      debug_info,
      {i,"include"},
-     {i,'src/erlang-rfc4627/include'},
      {outdir,'ebin'}
   ]
 }.

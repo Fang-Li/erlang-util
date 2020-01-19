@@ -1,9 +1,0 @@
-ejabberd_router:route({jid,"15475","yuejian.net","app_v2.1.2863444033868577","15475","yuejian.net",
-     "app_v2.1.2863444033868577"}, {jid,"15538","yuejian.net",[],"15538","yuejian.net",[]}, {xmlelement,"message",
-            [{"id","12"},
-             {"isoff","1"},
-             {"to","15538@yuejian.net"},
-             {"msgtype","normalchat"},
-             {"type","chat"}],
-            [{xmlelement,"body",[],
-                         [{xmlcdata,<<"{\"offlinelist\":[{\"msgid\":\"2342e818-b64d-4fdd-ae19-b5a61e885dd1\",\"id\":\"2342e818-b64d-4fdd-ae19-b5a61e885dd1\",\"msgTime\":\"1481707535865\",\"type\":0,\"content\":\"1\",\"msgsource\":\"çº¦ä½ \",\"msgtype\":\"0\"},{\"msgid\":\"9bc8208f-08bf-4e97-8aab-de6fc16f6a31\",\"id\":\"9bc8208f-08bf-4e97-8aab-de6fc16f6a31\",\"msgTime\":\"1481707536802\",\"type\":0,\"content\":\"2\",\"msgsource\":\"çº¦ä½ \",\"msgtype\":\"0\"},{\"msgid\":\"7546fbf2-be54-41a0-b2f1-1d6266f6b866\",\"id\":\"7546fbf2-be54-41a0-b2f1-1d6266f6b866\",\"msgTime\":\"1481707537781\",\"type\":0,\"content\":\"3\",\"msgsource\":\"çº¦ä½ \",\"msgtype\":\"0\"},{\"msgid\":\"1a6797d6-0b7c-43e0-bfe4-77a298287c0a\",\"id\":\"1a6797d6-0b7c-43e0-bfe4-77a298287c0a\",\"msgTime\":\"1481707538776\",\"type\":0,\"content\":\"4\",\"msgsource\":\"çº¦ä½ \",\"msgtype\":\"0\"},{\"msgid\":\"0c02354d-bd7b-413a-8d81-f1049a19b23c\",\"id\":\"0c02354d-bd7b-413a-8d81-f1049a19b23c\",\"msgTime\":\"1481707539930\",\"type\":0,\"content\":\"5\",\"msgsource\":\"çº¦ä½ \",\"msgtype\":\"0\"}],\"type\":\"10000\",\"usergender\":1,\"userimage\":\"http://beta.iyueni.com/Uploads/avatar/2/15475_2VN7uq.jpg_200_200_2_80.jpg\",\"username\":\"leon\",\"userid\":\"15475\"}">>}]}]})

@@ -1,4 +1,4 @@
--module(test).
+-module(encoding).
 -compile(export_all).
 -define(DBGFSM, p1_fsm).
 -ifdef(DBGFSM).
