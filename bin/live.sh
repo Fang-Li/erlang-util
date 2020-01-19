@@ -35,4 +35,4 @@ erl -pa $local/../ebin $local/../deps/*/ebin  \
 	-s reloader \
     -name $NODENAME \
     -setcookie eknife \
-    -detached
+    #-detached #默认不以detach启动

@@ -1,12 +1,13 @@
 %% erlang
 {
   [
-   'src/*',
-   'src/lib/*',
-   'src/deps/*',
-   'src/*/src/*',
-   'src/*/*',
-	 '../../repository/recon.git/src/*'
+    'src/parse_trans.erl',
+    'user_default.erl',
+    'src/*',
+    'src/deps/*',
+    'src/*/src/*',
+    'src/*/*',
+    '../../repository/recon.git/src/*'
   ],
   [
      nowarn_export_all,
