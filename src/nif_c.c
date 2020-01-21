@@ -25,3 +25,4 @@ ERL_NIF_INIT(nif_c,nif_funcs,NULL,NULL,NULL,NULL)
 
 
 // gcc -o nif_c.so -fpic -shared -I /data/service/erlang19.3/lib/erlang/erts-8.3/include/  nic_c.c
+// gcc -o nif_c.so -fpic -shared -I /Users/lifang/service/otp20.3.8/lib/erlang/erts-9.3.3/include/  src/nic_c.c
