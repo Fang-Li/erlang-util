@@ -15,14 +15,14 @@ start(Port) ->
     accept(Listener).
 
 accept(Listener) ->
-    {ok, Socket} = gen_tcp:accept(Listener),
-    loop(Socket).
+    {ok, CSock} = gen_tcp:accept(Listener),
+    loop(CSock).
 
-loop(Connection) ->
-    inet:setopts(Connection, [{active, once}]),
+loop(CSock) ->
+    inet:setopts(CSock, [{active, once}]),
     receive
-        {tcp, Connection, Message} ->
+        {tcp, CSock, Message} ->
             io:format("receive .. ~p~n", [Message]),
-            gen_tcp:send(Connection, Message),
-            loop(Connection)
+            gen_tcp:send(CSock, Message),
+            loop(CSock)
     end.
