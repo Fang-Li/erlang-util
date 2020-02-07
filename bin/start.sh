@@ -4,8 +4,14 @@
 
 local=`dirname $0`
 localip=`bin/ip.sh`
-NODE=`$local/dir.sh`
 echo `echo "\""$localip`"\"." > ~/.hosts.erlang
+
+## 支持自定义节点名称
+if [ "$1" = "" ]; then
+        NODE=`$local/dir.sh`
+else
+        NODE=$1
+fi
 NODENAME="$NODE@$localip"
 
 ## 启动并加载所有模块,可以实现用table键快速执行模块函数
