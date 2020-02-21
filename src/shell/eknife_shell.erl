@@ -52,18 +52,21 @@ recon([{Mod} | Tail], Acc, Options) ->
 
 %% 匹配"a:b"格式的字符串, 解析为{M,F}
 recon([ModFunc | Tail], Acc, Options) when is_list(ModFunc) ->
-    {Mod, Func} = string2mf(ModFunc),
-    recon([{Mod, Func} | Tail], Acc, Options);
+    {Mod, Func, Args} = string2mfa(ModFunc, Options),
+    recon([{Mod, Func, Args} | Tail], Acc, Options);
 
 %% 匹配"a:b"格式的字符串, 解析为{M,F}
 recon(ModFunc, Acc, Options) when is_list(ModFunc) ->
-    {Mod, Func} = string2mf(ModFunc),
-    recon([{Mod, Func}], Acc, Options).
+    {Mod, Func, Args} = string2mfa(ModFunc, Options),
+    recon([{Mod, Func, Args}], Acc, Options).
 
-string2mf(ModFunc) ->
-    case string:tokens(ModFunc, ":") of
+string2mfa(ModFunc, Options) ->
+    case string:tokens(ModFunc, [$:, $/]) of
         [Mod, Func] when Mod /= [] andalso Func /= [] ->
-            {type_util:to_atom(Mod), type_util:to_atom(Func)};
+            Args = get_if_return(Options),
+            {type_util:to_atom(Mod), type_util:to_atom(Func), Args};
+        [Mod, Func, ArgNum] when Mod /= [] andalso Func /= [] andalso ArgNum /= [] ->
+            {type_util:to_atom(Mod), type_util:to_atom(Func), type_util:to_integer(ArgNum)};
         _ ->
             throw(ModFunc)
     end.
