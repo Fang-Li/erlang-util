@@ -48,9 +48,25 @@ recon([Mod | Tail], Acc, Options) when is_atom(Mod) ->
 
 recon([{Mod} | Tail], Acc, Options) ->
     Args = get_if_return(Options),
-    recon([{Mod, '_', Args} | Tail], Acc, Options).
+    recon([{Mod, '_', Args} | Tail], Acc, Options);
 
+%% 匹配"a:b"格式的字符串, 解析为{M,F}
+recon([ModFunc | Tail], Acc, Options) when is_list(ModFunc) ->
+    {Mod, Func} = string2mf(ModFunc),
+    recon([{Mod, Func} | Tail], Acc, Options);
 
+%% 匹配"a:b"格式的字符串, 解析为{M,F}
+recon(ModFunc, Acc, Options) when is_list(ModFunc) ->
+    {Mod, Func} = string2mf(ModFunc),
+    recon([{Mod, Func}], Acc, Options).
+
+string2mf(ModFunc) ->
+    case string:tokens(ModFunc, ":") of
+        [Mod, Func] when Mod /= [] andalso Func /= [] ->
+            {type_util:to_atom(Mod), type_util:to_atom(Func)};
+        _ ->
+            throw(ModFunc)
+    end.
 %%---------------------------- args支持多种格式 ----------------------------------------
 
 %% 指定参数个数
