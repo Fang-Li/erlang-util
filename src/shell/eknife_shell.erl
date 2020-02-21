@@ -50,16 +50,16 @@ recon([{Mod} | Tail], Acc, Options) ->
     Args = get_if_return(Options),
     recon([{Mod, '_', Args} | Tail], Acc, Options);
 
-%% 匹配"a:b"格式的字符串, 解析为{M,F}
+%% 适配 ModFunc 的 string 格式
 recon([ModFunc | Tail], Acc, Options) when is_list(ModFunc) ->
     {Mod, Func, Args} = string2mfa(ModFunc, Options),
     recon([{Mod, Func, Args} | Tail], Acc, Options);
 
-%% 匹配"a:b"格式的字符串, 解析为{M,F}
 recon(ModFunc, Acc, Options) when is_list(ModFunc) ->
     {Mod, Func, Args} = string2mfa(ModFunc, Options),
     recon([{Mod, Func, Args}], Acc, Options).
 
+%% 支持以下格式: "a:b","a:b/1",["a:b"],["a:b/1"]
 string2mfa(ModFunc, Options) ->
     case string:tokens(ModFunc, [$:, $/]) of
         [Mod, Func] when Mod /= [] andalso Func /= [] ->
