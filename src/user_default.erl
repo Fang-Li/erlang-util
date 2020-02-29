@@ -14,28 +14,51 @@ get() ->
 
 %% 打印彩虹桥的输入输出
 r() ->
-    eknife_shell:recon().
+    eknife_shell:recon(eknife_shell:mfa(), []).
+
+r(Arg) ->
+    eknife_shell:recon(mfa(Arg), []).
+
+r(Arg1, Arg2) ->
+    eknife_shell:recon(mfa(Arg1, Arg2), []).
+
+r(Arg1, Arg2, Arg3) ->
+    eknife_shell:recon(mfa(Arg1, Arg2, Arg3), []).
+
+
+%% 跟踪指定pid
+rpid(Pid) ->
+    eknife_shell:recon(eknife_shell:mfa(), [{pid, Pid}]).
+
+rpid(Pid, Arg) ->
+    eknife_shell:recon(mfa(Arg), [{pid, Pid}]).
+
+rpid(Pid, Arg1, Arg2) ->
+    eknife_shell:recon(mfa(Arg1, Arg2), [{pid, Pid}]).
+
+rpid(Pid, Arg1, Arg2, Arg3) ->
+    eknife_shell:recon(mfa(Arg1, Arg2, Arg3), [{pid, Pid}]).
 
 %% 跟踪指定一个模块,所有函数
--spec(r(atom()|list() | [{M :: atom()|list(), F :: atom()|list()}, ...]) -> integer()).
+-spec(mfa(atom()|list() | [{M :: atom()|list(), F :: atom()|list()}, ...]) -> list()).
 
-r(Mod) when is_atom(Mod) ->
-    eknife_shell:recon([{Mod, '_'}], []);
+mfa(Mod) when is_atom(Mod) ->
+    [{Mod, '_'}];
 
 %% 跟踪指定多个模块,指定函数
 %% 跟踪多条匹配:一个模块,一个函数,一个pattern的任意组合形式
-r(MFAs) when is_list(MFAs) ->
-    eknife_shell:recon(MFAs, []).
+mfa(MFAs) when is_list(MFAs) ->
+    MFAs.
 
 %% 跟踪指定模块,特定函数
--spec(r(atom(), atom()|list()) -> integer()).
-r(Mod, Func) ->
-    eknife_shell:recon([{Mod, Func}], []).
+-spec(mfa(atom(), atom()|list()) -> list()).
+mfa(Mod, Func) ->
+    [{Mod, Func}].
 
 %% 跟踪指定参数个数
--spec(r(atom()|list(), atom()|list(), integer()) -> integer()).
-r(Mod, Func, Args) ->
-    eknife_shell:recon([{Mod, Func, Args}], []).
+-spec(mfa(atom()|list(), atom()|list(), integer()) -> list()).
+mfa(Mod, Func, Args) ->
+    [{Mod, Func, Args}].
 
 %% 跟踪玩法开发中的相关协议,前后端通信协议数据 ro意指recon ocean相关
 ro() ->

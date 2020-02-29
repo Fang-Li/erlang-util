@@ -113,14 +113,14 @@ trace(Patterns, Options) ->
             _ ->
                 2000
         end,
-    Scope =
+    Options2 =
         case lists:keyfind(scope, 1, Options) of
             {scope, export} ->
-                [];
+                lists:keydelete(scope, 1, Options);
             _ ->
-                [{scope, local}]
+                [{scope, local} | Options]
         end,
-    recon_trace:calls(Patterns, Times2, Scope).
+    recon_trace:calls(Patterns, Times2, Options2).
 
 %%---------------------------- 特定 API----------------------------------------
 
@@ -131,10 +131,10 @@ trace(Patterns, Options) ->
 %% dbg:fun2ms(fun([Args,bifrost_response]) -> false end).
 
 %% 跟踪所有protobuf接口数据
-recon() ->
+mfa() ->
     RequestMFA = bifrost_request(),
     ResponseMFA = {bifrost_response, encode_msg, [{['$1', bifrost_response], [], [false]}]},
-    recon([RequestMFA, ResponseMFA], []).
+    [RequestMFA, ResponseMFA].
 
 %% 跟踪ocean、nuwa、poseidon protobuf接口数据
 trace_without_ping() ->
