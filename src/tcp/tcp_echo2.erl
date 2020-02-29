@@ -12,6 +12,7 @@ start() ->
 
 start(Port) ->
     {ok, LSock} = gen_tcp:listen(Port, [binary, {active, false}, {reuseaddr, true}]),
+    io:format("server listen .. ~p~n", [LSock]),
     spawn(fun() -> handle(LSock) end).
 
 handle(LSock) ->
@@ -27,7 +28,7 @@ loop(LSock, Ref) ->
             {ok, NewRef} = prim_inet:async_accept(LSock, -1),
             loop(LSock, NewRef);
         Recv ->
-            io:format("receive .. ~p~n", [Recv]),
+            io:format("server receive .. ~p~n", [Recv]),
             loop(LSock, Ref)
     end.
 
@@ -40,7 +41,7 @@ client_loop(CSock) ->
     receive
         {tcp, CSock, Message} ->
             inet:setopts(CSock, [{active, once}]),
-            io:format("~p got message ~p\n", [self(), Message]),
+            io:format("~p got ~p from ~p\n", [self(), Message, CSock]),
             gen_tcp:send(CSock, <<"Echo back : ", Message/binary>>),
             client_loop(CSock);
         Recv ->
