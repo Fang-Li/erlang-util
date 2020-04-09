@@ -53,6 +53,7 @@ static(Event, From, State) ->
             {reply, okk1, static, State};
         a ->
             gen_fsm:reply(From, okk3),
+            io:format("after reply~n"),
             gen_fsm:reply(From, okk5),
             {reply, okk6, static, State};
         b ->
