@@ -18,6 +18,7 @@ pmap(F, L) ->
     gather(Pids).
 
 gather([H | T]) ->
+    io:format("if receive ~p lately.. ~n",[H]),
     receive
         {H, Result} -> [Result | gather(T)]
     end;
@@ -25,4 +26,5 @@ gather([]) ->
     [].
 
 do_fun(Parent, F, I) ->
+    io:format("if send ~p first.. ~n",[I]),
     Parent ! {self(), (catch F(I))}.
